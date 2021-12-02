@@ -9,6 +9,7 @@ import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.routing
 import no.capjakt.giftcards.AnswerBody
+import no.capjakt.giftcards.GifterWithoutAnswer
 import no.capjakt.service.GifterService
 
 fun Application.configureRouting() {
@@ -16,16 +17,9 @@ fun Application.configureRouting() {
 
   routing {
     get("/tickets") {
-      data class GifterWithoutAnswers(
-        val id: Int,
-        val name: String,
-        val question: String,
-      )
-
       val giftersWithoutAnswers = GifterService.allGifters().map {
-        GifterWithoutAnswers(it.id, it.name, it.question)
+        GifterWithoutAnswer(it.id, it.name, it.question, it.ticketsLeft)
       }
-
       call.respond(giftersWithoutAnswers)
     }
 

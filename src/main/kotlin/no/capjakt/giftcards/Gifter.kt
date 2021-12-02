@@ -10,3 +10,11 @@ data class Gifter(
   val answer: String,
   val ticketsLeft: Int,
 )
+
+@Serializable
+data class GifterWithoutAnswer(
+  val id: Int,
+  val name: String,
+  val question: String,
+  val ticketsLeft: Int
+)
