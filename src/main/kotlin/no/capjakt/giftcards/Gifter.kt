@@ -8,4 +8,5 @@ data class Gifter(
   val name: String,
   val question: String,
   val answer: String,
+  val ticketsLeft: Int,
 )
