@@ -8,7 +8,8 @@ import no.capjakt.plugins.configureRouting
 import no.capjakt.plugins.configureSerialization
 
 fun main() {
-  embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+  val port = (System.getenv("PORT") ?: "8080").toInt()
+  embeddedServer(Netty, port = port, host = "0.0.0.0") {
     configureRouting()
     configureSerialization()
     configureMonitoring()
