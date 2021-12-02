@@ -26,6 +26,10 @@ java {
   targetCompatibility = JavaVersion.VERSION_11
 }
 
+tasks.create("stage") {
+  dependsOn("installDist")
+}
+
 dependencies {
   implementation("io.ktor:ktor-server-core:$ktor_version")
   implementation("io.ktor:ktor-serialization:$ktor_version")
