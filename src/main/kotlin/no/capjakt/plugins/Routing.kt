@@ -15,7 +15,7 @@ fun Application.configureRouting() {
   // TODO: lagre dette i en database og lese ut
 
   routing {
-    get("/") {
+    get("/tickets") {
       call.respond(GifterService.allGifters())
     }
 
