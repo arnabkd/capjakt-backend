@@ -18,4 +18,10 @@ fun Application.configureMonitoring() {
 
   val dbUrl = System.getenv("DATABASE_URL")
   log.debug("db url is $dbUrl")
+
+  val dbUser = System.getenv("JDBC_DATABASE_USERNAME")
+  log.debug("db url is $dbUser")
+
+  val dbpw = System.getenv("JDBC_DATABASE_PASSWORD")
+  log.debug("db url is $dbpw")
 }
