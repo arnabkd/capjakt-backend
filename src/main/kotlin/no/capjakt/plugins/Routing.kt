@@ -16,7 +16,17 @@ fun Application.configureRouting() {
 
   routing {
     get("/tickets") {
-      call.respond(GifterService.allGifters())
+      data class GifterWithoutAnswers(
+        val id: Int,
+        val name: String,
+        val question: String,
+      )
+
+      val giftersWithoutAnswers = GifterService.allGifters().map {
+        GifterWithoutAnswers(it.id, it.name, it.question)
+      }
+
+      call.respond(giftersWithoutAnswers)
     }
 
     post("/answer") {
