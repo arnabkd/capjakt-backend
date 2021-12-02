@@ -11,8 +11,8 @@ object GifterService {
 
   fun findGifter(id: Int) = gifterList.find { it.id == id }
 
-  fun takeOneticket(id: Int) =  findGifter(id)!!.run {
-    val updated = this.copy(ticketsLeft =  this.ticketsLeft - 1)
+  fun takeOneticket(id: Int) = findGifter(id)!!.run {
+    val updated = this.copy(ticketsLeft = this.ticketsLeft - 1)
 
     gifterList.remove(this)
     gifterList.add(updated)

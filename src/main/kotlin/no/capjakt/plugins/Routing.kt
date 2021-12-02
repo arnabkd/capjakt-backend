@@ -1,15 +1,15 @@
 package no.capjakt.plugins
 
-import io.ktor.routing.*
-import io.ktor.http.*
-import io.ktor.application.*
-import io.ktor.features.NotFoundException
-import io.ktor.response.*
-import io.ktor.request.*
+import io.ktor.application.Application
+import io.ktor.application.call
+import io.ktor.http.HttpStatusCode
+import io.ktor.request.receive
+import io.ktor.response.respond
+import io.ktor.routing.get
+import io.ktor.routing.post
+import io.ktor.routing.routing
 import no.capjakt.giftcards.AnswerBody
-import no.capjakt.giftcards.Gifter
 import no.capjakt.service.GifterService
-import java.util.UUID
 
 fun Application.configureRouting() {
   // TODO: lagre dette i en database og lese ut
